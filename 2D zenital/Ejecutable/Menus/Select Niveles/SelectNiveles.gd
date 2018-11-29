@@ -2,6 +2,8 @@ extends Node
 
 var partida 
 
+
+
 func _load_scene(nivel):
 	partida = load(nivel).instance()
 	Global.nivel = partida.get_name()
@@ -13,4 +15,8 @@ func _load_scene(nivel):
 
 func _on_Nivel1_pressed():
 	_load_scene("res://Ejecutable/Juego/Escenarios/Niveles/Nivel1/nivel1.tscn")
+	get_parent().get_node("boton").play()
+
+
 	pass
+

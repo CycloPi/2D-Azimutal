@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Ejecutable/Menus/Creditos/Creditos.gd" type="Script" id=1]
+[ext_resource path="res://Ejecutable/Menus/Comunes/Boton Menu principal.tscn" type="PackedScene" id=2]
 
-
-[node name="Creditos" type="Node"]
+[node name="Creditos" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -23,8 +23,8 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "Creditos del juego 
-Este juego lo han hecho unos maquinas de la programacion. 
+text = "Créditos del juego 
+Este juego lo han hecho unos máquinas de la programación. 
 XD
 "
 percent_visible = 1.0
@@ -75,6 +75,8 @@ text = "Menu Principal"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Boton Menu principal" parent="." index="2" instance=ExtResource( 2 )]
 
 [connection signal="pressed" from="MenuPrincipal" to="." method="_on_MenuPrincipal_pressed"]
 

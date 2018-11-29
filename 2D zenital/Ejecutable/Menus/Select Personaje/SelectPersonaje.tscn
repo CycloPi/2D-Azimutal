@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Ejecutable/Menus/Select Personaje/SelectPersonaje.gd" type="Script" id=1]
-
+[ext_resource path="res://Ejecutable/Menus/Comunes/Boton Menu principal.tscn" type="PackedScene" id=2]
 
 [node name="SelectPlayer" type="Node"]
 
@@ -98,6 +98,8 @@ text = "Player 2"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Boton Menu principal" parent="." index="2" instance=ExtResource( 2 )]
 
 [connection signal="pressed" from="Player 1" to="." method="_on_Player_1_pressed"]
 

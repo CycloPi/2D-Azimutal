@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/jp00467.wav-57c90c0c7b4ecdf709c1a9fbb04e5e1d.sample"
+path="res://.import/win.wav-1a6c57f6ea07ae1aba751c976f076fda.sample"
 
 [deps]
 
-source_file="res://Ejecutable/Menus/Sonidos/jp00467.wav"
-dest_files=[ "res://.import/jp00467.wav-57c90c0c7b4ecdf709c1a9fbb04e5e1d.sample" ]
+source_file="res://Ejecutable/Menus/Sonidos/win.wav"
+dest_files=[ "res://.import/win.wav-1a6c57f6ea07ae1aba751c976f076fda.sample" ]
 
 [params]
 

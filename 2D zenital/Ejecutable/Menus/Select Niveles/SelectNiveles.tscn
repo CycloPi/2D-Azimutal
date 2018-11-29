@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Ejecutable/Menus/Select Niveles/SelectNiveles.gd" type="Script" id=1]
+[ext_resource path="res://Ejecutable/Menus/Comunes/Boton Menu principal.tscn" type="PackedScene" id=2]
 
 [node name="SelectNiveles" type="Node" index="0"]
 
@@ -186,6 +187,13 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Boton Menu principal" parent="." index="4" instance=ExtResource( 2 )]
+
 [connection signal="pressed" from="Nivel1" to="." method="_on_Nivel1_pressed"]
 
+[connection signal="script_changed" from="Boton Menu principal" to="." method="_on_Boton_Menu_principal_script_changed"]
 
+[connection signal="pressed" from="Boton Menu principal/Button" to="." method="_on_Button_pressed"]
+
+
+[editable path="Boton Menu principal"]

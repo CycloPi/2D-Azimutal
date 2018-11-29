@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # esta no lo tengo claro
-const UP = Vector2(0,1)
+#const UP = Vector2(0,1)
 
 # var pa movimiento:
 var motion = Vector2()
@@ -16,8 +16,9 @@ var Personaje1Muerto
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	Global.vida = 10
+	Global.vida = 20
 	set_process(true)
+
 	pass
 
 func _process(delta):
@@ -31,19 +32,19 @@ func _process(delta):
 
 	#movimiento: poner valores a la velo lineal según entradas cruceta lateral
 	if Input.is_action_pressed("ui_right"):
-		print("derecha")
+#		print("derecha")
 		motion.x = velocidad * delta
 	elif Input.is_action_pressed("ui_left"):
-		print("izquierda")
+#		print("izquierda")
 		motion.x = - velocidad * delta
 	else:
 		motion.x = 0
 	
 	if Input.is_action_pressed("ui_up"):
-		print("arriba")
+#		print("arriba")
 		motion.y = - velocidad * delta
 	elif Input.is_action_pressed("ui_down"):
-		print("abajo")
+#		print("abajo")
 		motion.y = velocidad * delta
 	else:
 		motion.y = 0
@@ -51,6 +52,8 @@ func _process(delta):
 # Limites para el movimiento
 	if position.x > get_viewport().size.x:
 		position.x = get_viewport().size.x
+	if position.y > get_viewport().size.y:
+		position.y = get_viewport().size.y
 	if position.x < 0:
 		position.x = 0
 	if position.y < 0:
@@ -62,17 +65,21 @@ func _process(delta):
 #esto me gusta pa platarformas
 	if  is_on_floor():
 		print("en el suelo")
-		Global.vida -= 1
+		print($".".get_slide_collision(0))
+#		bajaVida()
+		
 	if is_on_wall():
 		print("pared")
-		Global.vida -= 1
+		bajaVida()
+		
 		
 #esto detecta collision
 	if is_on_ceiling():
 		print("colision!!")
-		#disminuye la vida
-		Global.vida -= 1
-		print("Vida: " + str(Global.vida))
+		print($".".get_slide_collision(0))
+#		bajaVida()
+		
+
 	
 #la muerte de la cucuracha :) :) 
 	if Global.vida < 0:
@@ -86,10 +93,17 @@ func _process(delta):
 		Personaje1Muerto.get_parent().get_parent().queue_free()
 		
 #mover: poniendo el valor de movimiento motion aqui velo lineal
-	motion = move_and_slide(motion,UP)
+	motion = move_and_slide(motion)
+#	motion = move_and_slide(motion,UP)
 #	probar a quintar el UP)
 #	girar
 	look_at(position + motion)
 	
 #	# Update game logic here.
 	pass
+
+func bajaVida():
+		if $".".get_slide_collision(0).get_collider().is_in_group("Dano"):
+			Global.vida -= 1
+			print("Vida: " + str(Global.vida))
+			print("Capa0: " , $".".get_slide_collision(0).get_collider().is_in_group("Dano"))

@@ -10,8 +10,10 @@ func _load_scene(personaje):
 
 func _on_Player_1_pressed():
 	_load_scene("res://Ejecutable/Juego/Personajes/Personaje 1/Personaje1.tscn")
+	get_parent().get_node("boton").play()
 	pass # replace with function body
 
 func _on_Player_2_pressed():
 	_load_scene("res://Ejecutable/Juego/Personajes/Personaje 2/Personaje2.tscn")
+	get_parent().get_node("boton").play()
 	pass # replace with function body
